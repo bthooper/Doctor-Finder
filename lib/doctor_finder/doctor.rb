@@ -3,13 +3,12 @@
 
 class DoctorFinder::Doctor
 
-  attr_accessor :name, :speciality, :street, :city, :state, :zip, :details
+  attr_accessor :name, :url, :speciality, :street, :city, :state, :zip, :details
 
   @@all = []
 
   def initialize
-    doc = Doctor.new
-    @@all << doc
+    @@all << self
   end
 
   def self.all

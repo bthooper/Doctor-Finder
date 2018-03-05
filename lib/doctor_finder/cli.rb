@@ -32,7 +32,8 @@ class DoctorFinder::CLI
 
   def show_list(zipcode)
     # Calls scraper and prints a list of doctors based on the zip code entered by the user.
-    Scraper.scrape_by_zipcode(zipcode)
+    docs = DoctorFinder::Scraper.scrape_by_zipcode(zipcode)
+    docs.each { |doc| puts doc.name}
   end
 
   def get_choice_from_list
