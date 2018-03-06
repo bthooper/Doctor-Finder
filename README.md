@@ -6,6 +6,8 @@ Once zocdoc is scraped, the user is presented with a list of doctors more or les
 
 This CLI project was done as part of the requirements for the Web Developer Track at [The Flatiron School](http://flatironschool.com/).
 
+Version 0.1.1 > Fixed issue with the executable files.  Can now execute from command line as intended.
+
 ## License
 
 DoctorFinder is licensed under the [MIT License](https://mit-license.org).
