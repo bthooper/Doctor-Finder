@@ -30,7 +30,6 @@ class DoctorFinder::Scraper
       doctor.details = "No further details were available."
     end
     doctor.areas = html.css('li.specialty').text.squeeze(" ").gsub("\r\n \r\n ", "\r\n").lstrip
-    binding.pry
     doctor
   end
 
