@@ -5,3 +5,5 @@ require_relative "./doctor_finder/scraper.rb"
 require 'nokogiri'
 require 'open-uri'
 
+require "pry"
+

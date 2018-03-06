@@ -19,6 +19,7 @@ class DoctorFinder::CLI
       puts "\nPlease enter a valid zipcode:"
       zip = gets.chomp[0..4]
     end
+    zip
   end
 
   def iszipcode?(zipcode)
@@ -33,7 +34,9 @@ class DoctorFinder::CLI
   def show_list(zipcode)
     # Calls scraper and prints a list of doctors based on the zip code entered by the user.
     docs = DoctorFinder::Scraper.scrape_by_zipcode(zipcode)
-    docs.each { |doc| puts doc.name}
+    docs.each.with_index(1) do |doc, i|
+      puts "#{i}. #{doc.name} - #{doc.speciality} - #{doc.city}, #{doc.state} #{doc.zip}"
+    end
   end
 
   def get_choice_from_list
