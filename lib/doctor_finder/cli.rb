@@ -42,6 +42,29 @@ class DoctorFinder::CLI
   def get_choice_from_list
     # Gets a valid choice from the list of Doctors.
 
+    choice = nil 
+
+    while choice != "exit" && choice != "q"
+      puts "\n[1..#{DoctorFinder::Doctor.all.length}] Select Doctor | [zip] Start over with new zipcode | [exit] To quit"
+      choice = gets.chomp
+      if choice.to_i > 0 && choice.to_i < DoctorFinder::Doctor.all.length+1
+        #DoctorFinder::Scraper.scrape_for_details(DoctorFinder::Doctor.all[choice.to_i-1] 
+        puts "======================================\n"
+        # puts @doctors[choice.to_i-1].name
+        # puts @doctors[choice.to_i-1].street
+        # puts @doctors[choice.to_i-1].city + ', ' + @doctors[choice.to_i-1].state + ' ' + @doctors[choice.to_i-1].zip
+        # puts "--------------------------------------\n"
+        # puts "Areas of Specialty:"
+        # puts @doctors[choice.to_i-1].areas
+        # puts @doctors[choice.to_i-1].details
+      elsif choice == "zip"
+        show_list(get_zipcode)
+      else
+        puts "Please enter a number (1 - #{@doctors.length}) for a doctor, 'zip' or 'exit'."
+      end
+
+    end 
+
   end
 
 
