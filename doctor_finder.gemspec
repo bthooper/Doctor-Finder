@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "doctor_finder/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "Doctor Finder"
+  spec.name          = "doctor_finder"
   spec.version       = DoctorFinder::VERSION
   spec.authors       = ["Bryan Hooper"]
   spec.email         = ["bryan@lindsayfarm.net"]
@@ -12,15 +12,6 @@ Gem::Specification.new do |spec|
   spec.summary       = %q{DoctorFinder finds doctors.}
   spec.description   = %q{DoctorFinder is a CLI that asks for a zipcode and the returns a list of doctors.}
   spec.homepage      = "https://github.com/bthooper/doctor_finder"
-
-  # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
-  # to allow pushing to a single host or delete this section to allow pushing to any host.
-  if spec.respond_to?(:metadata)
-    spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
-  else
-    raise "RubyGems 2.0 or newer is required to protect against " \
-      "public gem pushes."
-  end
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
