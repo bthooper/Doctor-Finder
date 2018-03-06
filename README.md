@@ -1,8 +1,10 @@
 # DoctorFinder
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/doctor_finder`. To experiment with that code, run `bin/console` for an interactive prompt.
+DoctorFinder is a Ruby Gem that searches for doctors in a given zipcode.  The CLI asks ths user for a zip code and then scrapes data from [https://www.zocdoc.com/](https://www.zocdoc.com/).
 
-TODO: Delete this and the text above, and describe your gem
+Once zocdoc is scraped, the user is presented with a list of doctors more or less in or near the requsted zipcode.  The user can then select a particular doctor to see more details about that doctor.
+
+This CLI project was done as part of the requirements for the Web Developer Track at [The Flatiron School](http://flatironschool.com/).
 
 ## Installation
 
@@ -22,7 +24,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+This is a CLI. Once you run the command 'doctor_finder' from the command line, you will be asked to enter a valid zip code.  As long as the zipcode begins with give digits, it will perform a search and return a list of doctors.  You can then enter a number corresponding to the doctor you are interested in for more details about that doctor.  After that, the process repeats until you exit.
 
 ## Development
 
