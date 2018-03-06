@@ -24,9 +24,12 @@ class DoctorFinder::Scraper
   end
 
   def self.scrape_for_details(doctor)
-
-
-
+    html = Nokogiri::HTML(open(doctor.url))
+    doctor.details = html.css('.profile-professional-statement').text.squeeze(' ')
+    if doctor.details.strip == ""
+      doctor.details = "No further details were available."
+    end
+    doctor.areas = html.css('li.specialty').text.squeeze(' ').squeeze("\r\n")
     doctor
   end
 

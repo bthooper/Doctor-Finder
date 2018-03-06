@@ -3,7 +3,7 @@
 
 class DoctorFinder::Doctor
 
-  attr_accessor :name, :url, :speciality, :street, :city, :state, :zip, :details
+  attr_accessor :name, :url, :speciality, :street, :city, :state, :zip, :details, :areas
 
   @@all = []
 
@@ -14,6 +14,11 @@ class DoctorFinder::Doctor
   def self.all
     @@all
   end
+
+  def self.clear
+    @@all = []
+  end
+
 
 
 

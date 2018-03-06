@@ -33,6 +33,7 @@ class DoctorFinder::CLI
 
   def show_list(zipcode)
     # Calls scraper and prints a list of doctors based on the zip code entered by the user.
+    DoctorFinder::Doctor.clear
     docs = DoctorFinder::Scraper.scrape_by_zipcode(zipcode)
     docs.each.with_index(1) do |doc, i|
       puts "#{i}. #{doc.name} - #{doc.speciality} - #{doc.city}, #{doc.state} #{doc.zip}"
@@ -48,28 +49,26 @@ class DoctorFinder::CLI
       puts "\n[1..#{DoctorFinder::Doctor.all.length}] Select Doctor | [zip] Start over with new zipcode | [exit] To quit"
       choice = gets.chomp
       if choice.to_i > 0 && choice.to_i < DoctorFinder::Doctor.all.length+1
-        #DoctorFinder::Scraper.scrape_for_details(DoctorFinder::Doctor.all[choice.to_i-1] 
+        doc = DoctorFinder::Scraper.scrape_for_details(DoctorFinder::Doctor.all[choice.to_i-1]) 
         puts "======================================\n"
-        # puts @doctors[choice.to_i-1].name
-        # puts @doctors[choice.to_i-1].street
-        # puts @doctors[choice.to_i-1].city + ', ' + @doctors[choice.to_i-1].state + ' ' + @doctors[choice.to_i-1].zip
-        # puts "--------------------------------------\n"
-        # puts "Areas of Specialty:"
-        # puts @doctors[choice.to_i-1].areas
-        # puts @doctors[choice.to_i-1].details
+        puts doc.name
+        puts doc.street
+        puts doc.city + ', ' + doc.state + ' ' + doc.zip
+        puts "--------------------------------------\n"
+        puts "Areas of Specialty:"
+        puts doc.areas
+        puts doc.details
       elsif choice == "zip"
         show_list(get_zipcode)
       else
-        puts "Please enter a number (1 - #{@doctors.length}) for a doctor, 'zip' or 'exit'."
+        puts "Please enter a number (1 - #{DoctorFinder::Doctor.all.length}) for a doctor, 'zip' or 'exit'."
       end
-
     end 
-
   end
 
 
   def show_doctor_details
-    # Calls Sraper again to get selected doctor's details.
+    # Calls Scraper again to get selected doctor's details.
 
   end
 
