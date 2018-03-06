@@ -8,7 +8,6 @@ class DoctorFinder::CLI
     puts "\nWith HDF you can retrieve a list of doctors by zipcode and then get more details about a particular doctor on that list. It's easy!"
     show_list(get_zipcode)
     get_choice_from_list
-    show_doctor_details
     farewell
   end
 
@@ -60,20 +59,13 @@ class DoctorFinder::CLI
         puts doc.details
       elsif choice == "zip"
         show_list(get_zipcode)
-      else
-        puts "Please enter a number (1 - #{DoctorFinder::Doctor.all.length}) for a doctor, 'zip' or 'exit'."
       end
     end 
   end
 
-
-  def show_doctor_details
-    # Calls Scraper again to get selected doctor's details.
-
-  end
-
   def farewell
     # Tells the user goodbye.
+    puts "\n\nThank you for using Hooper's Doctor Finder.  This was an educational experiment, and I learned a lot.  At first it seemed hard, but then it got easier.\n\nSee you next time.\n\n\n\n"
   end
 
 
